@@ -24,6 +24,7 @@ async function getShowsByTerm(term) {
   return serializeShowData(resp.data);
 }
 
+/** serialise Tv Show Data */
 function serializeShowData(data) {
   const showResults = [];
 
@@ -79,7 +80,7 @@ function populateShows(shows) {
 async function searchForShowAndDisplay() {
   const term = $("#searchForm-term").val();
   const shows = await getShowsByTerm(term);
-  console.log(shows);
+
   $episodesArea.hide();
 
   if(shows.length < 1){
@@ -90,6 +91,7 @@ async function searchForShowAndDisplay() {
   populateShows(shows);
 }
 
+/** listens to search form being submitted then calls controller function */
 $searchForm.on("submit", async function (evt) {
   evt.preventDefault();
   await searchForShowAndDisplay();
