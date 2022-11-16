@@ -5,6 +5,7 @@ const $episodesArea = $("#episodesArea");
 const $searchForm = $("#searchForm");
 const TVMAZE_BASE_URL = 'http://api.tvmaze.com';
 const TVMAZE_SHOW_ENDPOINT = '/search/shows';
+const BLANK_IMAGE = "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
 
 
 /** Given a search term, search for tv shows that match that query.
@@ -35,7 +36,7 @@ function serializeShowData(data) {
       summary: show.show.summary,
       image: show.show.image === null ?
       {
-        original: "https://www.nbmchealth.com/wp-content/uploads/2018/04/default-placeholder.png"
+        original: BLANK_IMAGE
       }
       : show.show.image
     }
